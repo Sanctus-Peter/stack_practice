@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * read_file - reads an entire content of a file

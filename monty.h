@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
 #define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
@@ -107,4 +107,4 @@ char **strtow(char *, char *);
 void clear_memory(void);
 void free_tokenized(char **);
 
-#endif /* MAIN_H */
+#endif /* MONTY_H */

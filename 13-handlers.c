@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * rotr_handler - Rotates the bottom value of a stack_t linked list to the top.

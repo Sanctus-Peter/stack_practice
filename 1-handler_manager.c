@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * _get_handler - checks for a registered handler for a given opcode

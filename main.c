@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /* Initialise Global variables */
 global_t global = {

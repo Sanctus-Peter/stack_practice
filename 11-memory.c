@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * clear_memory - clears memory
