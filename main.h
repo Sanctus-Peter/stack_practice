@@ -80,6 +80,7 @@ char *read_file(const char *);
 
 /* ========== Parse functions ========= */
 void parse_instructions(char **);
+int simple_opcodes(char **);
 
 /* ========== Helpers ========== */
 int is_delim(char, char *);

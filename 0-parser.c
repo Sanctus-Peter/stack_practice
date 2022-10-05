@@ -19,6 +19,8 @@ void parse_instructions(char **lines)
 		args = strtow(lines[line], DELIM);
 		if (!args || !args[0])
 			continue;
+		if (simple_opcodes(args))
+			continue;
 		cmd = _get_handler(args[0]);
 		if (!cmd.f)
 		{
@@ -33,4 +35,25 @@ void parse_instructions(char **lines)
 		free_tokenized(args);
 	}
 
+}
+
+/**
+ * simple_opcodes - handle simple opcodes
+ * @args: the args
+ * Return: 1 if found 0 otherwise
+ */
+int simple_opcodes(char **args)
+{
+	char *opcode = args[0];
+	int result = 1;
+
+	if (strcmp(opcode, "queue") == 0)
+		mode = QUEUE;
+	else if (strcmp(opcode, "stack") == 0)
+		mode = STACK;
+	else
+		result = 0;
+	if (result)
+		free_tokenized(args);
+	return (result);
 }

@@ -19,10 +19,7 @@ void calculator(char op, char *opname,  int line)
 		dprintf(2, "L%u: can't %s, stack too short\n", line, opname);
 		quit = EXIT_FAILURE;
 	}
-	if (mode == STACK)
-		a = head->n, b = head->next->n;
-	else
-		a = tail->n, b = tail->prev->n;
+	a = head->n, b = head->next->n;
 	switch (op)
 	{
 	case '+':
@@ -43,8 +40,5 @@ void calculator(char op, char *opname,  int line)
 	default:
 		break;
 	}
-	if (mode == STACK)
-		head->next->n = res, pop();
-	else
-		tail->prev->n = res, dequeue();
+	head->next->n = res, pop();
 }
