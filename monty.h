@@ -102,6 +102,8 @@ int simple_opcodes(char **);
 /* ========== Helpers ========== */
 int is_delim(char, char *);
 char **strtow(char *, char *);
+int _isdigit(int c);
+int is_number(char *str);
 
 /* ========== Memory functions ========== */
 void clear_memory(void);

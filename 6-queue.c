@@ -11,6 +11,9 @@ void enqueue(int n)
 	if (!new)
 	{
 		/* handle overflow */
+		fprintf(stderr, "Error: malloc failed\n");
+		global.quit = EXIT_FAILURE;
+		return;
 	}
 	new->n = n;
 	if (!global.head) /* Empty Queue */

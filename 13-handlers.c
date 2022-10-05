@@ -54,7 +54,7 @@ void rotl_handler(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pstr_function - Prints the string contained in a stack_t linked list.
+ * pstr_handler - Prints the string contained in a stack_t linked list.
  * @stack: A pointer to the top mode node of a stack_t linked list.
  * @line_number: The current working line number of a Monty bytecodes file.
  */

@@ -10,7 +10,10 @@ void push(int n)
 
 	if (!new)
 	{
-		/* handle error */
+		/* handle overflow */
+		fprintf(stderr, "Error: malloc failed\n");
+		global.quit = EXIT_FAILURE;
+		return;
 	}
 	new->n = n;
 	new->next = global.head;

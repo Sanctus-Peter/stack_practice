@@ -38,6 +38,8 @@ void parse_instructions(char **lines)
 		global.arg = args[1];
 		cmd.f(&global.head, line + 1);
 		free_tokenized(args);
+		if (global.quit == EXIT_FAILURE)
+			break;
 	}
 
 }

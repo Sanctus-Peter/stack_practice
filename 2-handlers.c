@@ -11,9 +11,10 @@ void push_handler(stack_t **s, unsigned int l)
 	(void)s;
 	(void)l;
 
-	if (!global.arg)
+	if (!global.arg || !is_number(global.arg))
 	{
 		/* error */
+		fprintf(stderr, "L%u: usage: push integer\n", l);
 		global.quit = EXIT_FAILURE;
 		return;
 	}
@@ -56,8 +57,12 @@ void pop_handler(stack_t **s, unsigned int l)
 void swap_handler(stack_t **s, unsigned int l)
 {
 	(void)s;
-	(void)l;
-
+	if (!global.head || !global.head->next)
+	{
+		dprintf(2, "L%u: can't swap, stack too short\n", l);
+		global.quit = EXIT_FAILURE;
+		return;
+	}
 	swap();
 }
 
