@@ -37,17 +37,17 @@ void temp_handler(stack_t **s, unsigned int l)
  */
 void pchr_handler(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL)
+	if ((*stack) == NULL)
 	{
 		fprintf(stderr, "%u: can't pchar, stack empty", line_number);
 		return;
 	}
-	if ((*stack)->next->n < 0 || (*stack)->next->n > 127)
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
-		fprintf(stderr, "L%u: can't pchar, value out of range", line_number);	
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);	
 		global.quit = EXIT_FAILURE;
 		return;
 	}
 
-	printf("%c\n", (*stack)->next->n);
+	printf("%c\n", (*stack)->n);
 }
