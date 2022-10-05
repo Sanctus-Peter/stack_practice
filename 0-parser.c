@@ -21,6 +21,11 @@ void parse_instructions(char **lines)
 			continue;
 		if (simple_opcodes(args))
 			continue;
+		if (args[0][0] == '#')
+		{
+			free_tokenized(args);
+			continue;
+		}
 		cmd = _get_handler(args[0]);
 		if (!cmd.f)
 		{

@@ -18,6 +18,7 @@ void calculator(char op, char *opname,  int line)
 	{
 		dprintf(2, "L%u: can't %s, stack too short\n", line, opname);
 		quit = EXIT_FAILURE;
+		return;
 	}
 	a = head->n, b = head->next->n;
 	switch (op)

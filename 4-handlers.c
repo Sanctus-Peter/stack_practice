@@ -13,6 +13,7 @@ void pint_handler(stack_t **s, unsigned int l)
 	{
 		dprintf(2, "L%u: can't pint, stack empty\n", l);
 		quit = EXIT_FAILURE;
+		return;
 	}
 	printf("%d\n", head->n);
 }
