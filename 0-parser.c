@@ -64,3 +64,21 @@ int simple_opcodes(char **args)
 		free_tokenized(args);
 	return (result);
 }
+
+/**
+ * process_args - chexk for validity of arg
+ * @args: arguments array
+ */
+void process_args(char **args)
+{
+	int count = arrlen(args);
+
+	if (!count)
+		global.arg = NULL;
+	else if (count == 1)
+		global.arg = args[0];
+	else
+	{
+
+	}
+}

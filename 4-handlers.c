@@ -39,7 +39,8 @@ void pchr_handler(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack) == NULL)
 	{
-		fprintf(stderr, "%u: can't pchar, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		global.quit = EXIT_FAILURE;
 		return;
 	}
 	if ((*stack)->n < 0 || (*stack)->n > 127)
@@ -48,6 +49,5 @@ void pchr_handler(stack_t **stack, unsigned int line_number)
 		global.quit = EXIT_FAILURE;
 		return;
 	}
-
 	printf("%c\n", (*stack)->n);
 }

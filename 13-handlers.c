@@ -64,6 +64,8 @@ void pstr_handler(stack_t **stack, unsigned int line_number)
 
 	while (tmp && tmp->n != 0 && (tmp->n > 0 && tmp->n <= 127))
 	{
+		if (tmp->n > 127 || tmp->n < 0)
+			break;
 		printf("%c", tmp->n);
 		tmp = tmp->next;
 	}

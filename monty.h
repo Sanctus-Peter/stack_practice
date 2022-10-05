@@ -104,6 +104,7 @@ int is_delim(char, char *);
 char **strtow(char *, char *);
 int _isdigit(int c);
 int is_number(char *str);
+int arrlen(char **args);
 
 /* ========== Memory functions ========== */
 void clear_memory(void);
