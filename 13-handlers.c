@@ -9,16 +9,16 @@ void rotr_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top, *bottom;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 		return;
 
-	top = (*stack)->next;
-	bottom = (*stack)->next;
+	top = (*stack);
+	bottom = (*stack);
 	while (bottom->next != NULL)
 		bottom = bottom->next;
 
 	bottom->prev->next = NULL;
-	(*stack)->next = bottom;
+	(*stack) = bottom;
 	bottom->prev = *stack;
 	bottom->next = top;
 	top->prev = bottom;
@@ -36,16 +36,16 @@ void rotl_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top, *bottom;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 		return;
 
-	top = (*stack)->next;
-	bottom = (*stack)->next;
+	top = (*stack);
+	bottom = (*stack);
 	while (bottom->next != NULL)
 		bottom = bottom->next;
 
 	top->next->prev = *stack;
-	(*stack)->next = top->next;
+	(*stack) = top->next;
 	bottom->next = top;
 	top->next = NULL;
 	top->prev = bottom;
@@ -60,7 +60,7 @@ void rotl_handler(stack_t **stack, unsigned int line_number)
  */
 void pstr_handler(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = (*stack)->next;
+	stack_t *tmp = (*stack);
 
 	while (tmp && tmp->n != 0 && (tmp->n > 0 && tmp->n <= 127))
 	{
