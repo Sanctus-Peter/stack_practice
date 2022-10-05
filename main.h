@@ -40,12 +40,25 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct global_s - a global struct to hold info regarding the entire project
+ * @head: head of the stack
+ * @tail: tail of the stack
+ * @mode: mode of the data LIFO or FIFO
+ * @quit: variable for exit
+ * @arg: argument if any
+ */
+typedef struct global_s
+{
+	stack_t *head;
+	stack_t *tail;
+	int mode;
+	int quit;
+	char *arg;
+} global_t;
+
 /* ========== Globals =========== */
-extern stack_t *head;
-extern stack_t *tail;
-extern int mode;
-extern int quit;
-extern char *arg;
+extern global_t global;
 
 /* =========== Handlers ============ */
 void push_handler(stack_t **, unsigned int);

@@ -32,11 +32,11 @@ void parse_instructions(char **lines)
 			/* handle invalid command */
 			dprintf(2, "L%u: unknown instruction %s\n", line + 1, args[0]);
 			free_tokenized(args);
-			quit = EXIT_FAILURE;
+			global.quit = EXIT_FAILURE;
 			break;
 		}
-		arg = args[1];
-		cmd.f(&head, line + 1);
+		global.arg = args[1];
+		cmd.f(&global.head, line + 1);
 		free_tokenized(args);
 	}
 
@@ -53,9 +53,9 @@ int simple_opcodes(char **args)
 	int result = 1;
 
 	if (strcmp(opcode, "queue") == 0)
-		mode = QUEUE;
+		global.mode = QUEUE;
 	else if (strcmp(opcode, "stack") == 0)
-		mode = STACK;
+		global.mode = STACK;
 	else
 		result = 0;
 	if (result)

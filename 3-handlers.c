@@ -45,14 +45,13 @@ void div_handler(stack_t **s, unsigned int l)
 {
 	(void)s;
 
-	if (head && !head->n)
+	if (global.head && !global.head->n)
 	{
 		dprintf(2, "L%u: division by zero\n", l);
-		quit = EXIT_FAILURE;
+		global.quit = EXIT_FAILURE;
 		return;
 	}
 	calculator('/', "div", l);
-	(void)l;
 }
 
 /**
@@ -64,10 +63,10 @@ void mod_handler(stack_t **s, unsigned int l)
 {
 	(void)s;
 
-	if (head && !head->n)
+	if (global.head && !global.head->n)
 	{
 		dprintf(2, "L%u: division by zero\n", l);
-		quit = EXIT_FAILURE;
+		global.quit = EXIT_FAILURE;
 		return;
 	}
 	calculator('%', "mod", l);

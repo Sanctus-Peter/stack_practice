@@ -13,12 +13,12 @@ void push(int n)
 		/* handle error */
 	}
 	new->n = n;
-	new->next = head;
-	if (!head)
-		tail = new;
+	new->next = global.head;
+	if (!global.head)
+		global.tail = new;
 	else
-		head->prev = new;
-	head = new;
+		global.head->prev = new;
+	global.head = new;
 }
 
 /**
@@ -29,14 +29,14 @@ void push(int n)
 int pop(void)
 {
 	int res;
-	stack_t *temp = head;
+	stack_t *temp = global.head;
 
-	res = head->n;
-	if (head != tail)
-		head->next->prev = 0;
+	res = global.head->n;
+	if (global.head != global.tail)
+		global.head->next->prev = 0;
 	else
-		tail = 0;
-	head = head->next;
+		global.tail = 0;
+	global.head = global.head->next;
 	free(temp);
 	return (res);
 }
@@ -47,7 +47,7 @@ int pop(void)
 
 void print_stack(void)
 {
-	stack_t *temp = head;
+	stack_t *temp = global.head;
 
 	while (temp)
 	{

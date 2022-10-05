@@ -5,15 +5,16 @@
  */
 void swap(void)
 {
-	int temp;
+	int first, second;
 
-	if (!head || !head->next)
+	if (!global.head || !global.head->next)
 	{
 		dprintf(2, "L%u: can't swap, stack too short\n", 1u);
-		quit = EXIT_FAILURE;
+		global.quit = EXIT_FAILURE;
 		return;
 	}
-	temp = head->n;
-	head->n = head->next->n;
-	head->next->n = temp;
+	first = pop();
+	second = pop();
+	push(first);
+	push(second);
 }

@@ -8,11 +8,11 @@ void clear_memory(void)
 	stack_t *temp;
 
 	/* Clear Data structure */
-	while (head)
+	while (global.head)
 	{
-		temp = head->next;
-		free(head);
-		head = temp;
+		temp = global.head->next;
+		free(global.head);
+		global.head = temp;
 	}
 }
 

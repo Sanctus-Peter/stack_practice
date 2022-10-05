@@ -14,13 +14,14 @@ void calculator(char op, char *opname,  int line)
 {
 	int res, a, b;
 
-	if (!head || !head->next)
+	if (!global.head || !global.head->next)
 	{
 		dprintf(2, "L%u: can't %s, stack too short\n", line, opname);
-		quit = EXIT_FAILURE;
+		global.quit = EXIT_FAILURE;
 		return;
 	}
-	a = head->n, b = head->next->n;
+	a = global.head->n;
+	b = global.head->next->n;
 	switch (op)
 	{
 	case '+':
@@ -41,5 +42,5 @@ void calculator(char op, char *opname,  int line)
 	default:
 		break;
 	}
-	head->next->n = res, pop();
+	global.head->next->n = res, pop();
 }

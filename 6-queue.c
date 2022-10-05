@@ -13,21 +13,21 @@ void enqueue(int n)
 		/* handle overflow */
 	}
 	new->n = n;
-	if (!head) /* Empty Queue */
+	if (!global.head) /* Empty Queue */
 	{
-		head = tail = new;
+		global.head = global.tail = new;
 	}
-	else if (head == tail) /* One element */
+	else if (global.head == global.tail) /* One element */
 	{
-		head->next = new;
-		new->prev = head;
+		global.head->next = new;
+		new->prev = global.head;
 	}
 	else /* More than one element */
 	{
-		tail->next = new;
-		new->prev = tail;
+		global.tail->next = new;
+		new->prev = global.tail;
 	}
-	tail = new;
+	global.tail = new;
 }
 
 /**

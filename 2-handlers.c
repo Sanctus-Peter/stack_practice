@@ -11,14 +11,14 @@ void push_handler(stack_t **s, unsigned int l)
 	(void)s;
 	(void)l;
 
-	if (!arg)
+	if (!global.arg)
 	{
 		/* error */
-		quit = EXIT_FAILURE;
+		global.quit = EXIT_FAILURE;
 		return;
 	}
-	n = atoi(arg);
-	if (mode == STACK)
+	n = atoi(global.arg);
+	if (global.mode == STACK)
 		push(n);
 	else
 		enqueue(n);
@@ -35,14 +35,14 @@ void pop_handler(stack_t **s, unsigned int l)
 	(void)s;
 	(void)l;
 
-	if (!head)
+	if (!global.head)
 	{
 		/* error underflow */
 		dprintf(2, "L%u: can't pop an empty stack\n", l);
-		quit = EXIT_FAILURE;
+		global.quit = EXIT_FAILURE;
 		return;
 	}
-	if (mode == STACK)
+	if (global.mode == STACK)
 		pop();
 	else
 		dequeue();
@@ -71,7 +71,7 @@ void pall_handler(stack_t **s, unsigned int l)
 	(void)s;
 	(void)l;
 
-	if (mode == QUEUE)
+	if (global.mode == QUEUE)
 		print_queue();
 	else
 		print_stack();

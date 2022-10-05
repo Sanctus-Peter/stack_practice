@@ -9,13 +9,13 @@ void pint_handler(stack_t **s, unsigned int l)
 {
 	(void)s;
 
-	if (!head)
+	if (!global.head)
 	{
 		dprintf(2, "L%u: can't pint, stack empty\n", l);
-		quit = EXIT_FAILURE;
+		global.quit = EXIT_FAILURE;
 		return;
 	}
-	printf("%d\n", head->n);
+	printf("%d\n", global.head->n);
 }
 
 /**

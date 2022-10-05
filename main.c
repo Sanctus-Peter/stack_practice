@@ -1,11 +1,9 @@
 #include "main.h"
 
 /* Initialise Global variables */
-stack_t *tail = NULL; 
-stack_t *head = NULL;
-int mode = STACK;
-int quit = 0;
-char *arg = 0;
+global_t global = {
+	NULL, NULL, STACK, 0, NULL
+};
 
 /**
  * main - entry point
@@ -36,7 +34,7 @@ int main(int argc, char **argv)
 
 	free_tokenized(lines);
 	clear_memory();
-	if (quit == EXIT_FAILURE)
+	if (global.quit == EXIT_FAILURE)
 		exit(EXIT_FAILURE);
 
 	return (0);
