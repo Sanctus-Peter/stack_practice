@@ -13,6 +13,10 @@ instruction_t _get_handler(const char *opcode)
 	static instruction_t handlers[] = {
 		{"push", push_handler},
 		{"pall", pall_handler},
+		{"pchar", pchr_handler},
+		{"pstr", pstr_handler},
+		{"rotl", rotl_handler},
+		{"rotr", rotr_handler},
 		{"pop", pop_handler},
 		{"add", add_handler},
 		{"nop", nop_handler},

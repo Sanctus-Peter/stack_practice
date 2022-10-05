@@ -58,7 +58,7 @@ void rotl_handler(stack_t **stack, unsigned int line_number)
  * @stack: A pointer to the top mode node of a stack_t linked list.
  * @line_number: The current working line number of a Monty bytecodes file.
  */
-void pstr_function(stack_t **stack, unsigned int line_number)
+void pstr_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = (*stack)->next;
 

@@ -30,12 +30,12 @@ void temp_handler(stack_t **s, unsigned int l)
 }
 
 /**
- * monty_pchar - Prints the character in the top value
+ * pchr_handler - Prints the character in the top value
  *               node of a stack_t linked list.
  * @stack: A pointer to the top mode node of a stack_t linked list.
  * @line_number: The current working line number of a Monty bytecodes file.
  */
-void pchar_function(stack_t **stack, unsigned int line_number)
+void pchr_handler(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL)
 	{
