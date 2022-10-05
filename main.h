@@ -72,6 +72,10 @@ void mul_handler(stack_t **, unsigned int);
 void div_handler(stack_t **, unsigned int);
 void mod_handler(stack_t **, unsigned int);
 void pint_handler(stack_t **, unsigned int);
+void rotl_handler(stack_t **, unsigned int);
+void pstr_handler(stack_t **, unsigned int);
+void pchr_handler(stack_t **, unsigned int);
+void rotr_handler(stack_t **, unsigned int);
 instruction_t _get_handler(const char *);
 
 /* =========== Stack Ops =========== */
