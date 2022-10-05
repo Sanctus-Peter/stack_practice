@@ -39,7 +39,7 @@ void pchr_handler(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack) == NULL)
 	{
-		fprintf(stderr, "%u: can't pchar, stack empty", line_number);
+		fprintf(stderr, "%u: can't pchar, stack empty\n", line_number);
 		return;
 	}
 	if ((*stack)->n < 0 || (*stack)->n > 127)
