@@ -1,12 +1,33 @@
 #include "main.h"
 
 /**
- * enqueue - adds an element
+ * enqueue - adds an element at the end
  * @n: data to add
  */
 void enqueue(int n)
 {
-	push(n);
+	stack_t *new = malloc(sizeof(stack_t));
+
+	if (!new)
+	{
+		/* handle overflow */
+	}
+	new->n = n;
+	if (!head) /* Empty Queue */
+	{
+		head = tail = new;
+	}
+	else if (head == tail) /* One element */
+	{
+		head->next = new;
+		new->prev = head;
+	}
+	else /* More than one element */
+	{
+		tail->next = new;
+		new->prev = tail;
+	}
+	tail = new;
 }
 
 /**
@@ -16,22 +37,7 @@ void enqueue(int n)
  */
 int dequeue(void)
 {
-	int res;
-	stack_t *temp = tail;
-
-	if (!tail)
-	{
-		/* handle underflow */
-	}
-	res = tail->n;
-	if (head == tail)
-		head = 0;
-	else
-		tail->prev->next = 0;
-	tail = tail->prev;
-	free(temp);
-
-	return (res);
+	return (pop());
 }
 /**
  * print_queue - print in FIFO
@@ -39,12 +45,5 @@ int dequeue(void)
 
 void print_queue(void)
 {
-	stack_t *temp = tail;
-
-	while (temp)
-	{
-		printf("%d\n", temp->n);
-		temp = temp->prev;
-	}
-
+	print_stack();
 }
